@@ -1,0 +1,9 @@
+# Python
+.venv
+__pycache__
+
+# Nix
+.direnv
+
+# Legacy
+.old
