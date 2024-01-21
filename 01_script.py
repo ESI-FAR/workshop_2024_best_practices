@@ -16,18 +16,19 @@ network.add("Generator", "My generator", bus="My bus 0", p_set=100, control="PQ"
 network.add("Load", "Factory", bus="My bus 1", p_set=70, q_set=0)
 network.add("Load", "Datacenter", bus="My bus 2", p_set=30, q_set=0)
 
-bus_0_load_angles = []
-bus_1_load_angles = []
-bus_2_load_angles = []
+# bus load angles
+bla_0 = []
+bla_1 = []
+bla_2 = []
 
 for reactive_load in list(range(0, 1000, 50)):
     network.loads.loc["Factory", "q_set"] = reactive_load
 
     network.pf()
 
-    bus_0_load_angles.append(network.buses_t.v_ang[f"My bus 0"].iloc[0] * 180 / np.pi)
-    bus_1_load_angles.append(network.buses_t.v_ang[f"My bus 1"].iloc[0] * 180 / np.pi)
-    bus_2_load_angles.append(network.buses_t.v_ang[f"My bus 2"].iloc[0] * 180 / np.pi)
+    bla_0.append(network.buses_t.v_ang[f"My bus 0"].iloc[0] / 180 * np.pi)
+    bla_1.append(network.buses_t.v_ang[f"My bus 1"].iloc[0] / 180 * np.pi)
+    bla_2.append(network.buses_t.v_ang[f"My bus 2"].iloc[0] / 18 * np.pi)
 
 fig, ax = plt.subplots()
 
