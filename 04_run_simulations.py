@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+"""Run power grid simulations
+
+We set up a circular grid of lines, containing one generator and two loads. The
+reactive load of the `Factory` load is variable, and we analyze the phase angles
+at all lines depending on the `Factory` reactive loads.
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pypsa
@@ -17,7 +24,8 @@ def plot_bus_load_angles(
 
     Args:
         bus_load_angles: Load angles on each bus.
-        reactive_power_consumption_factory: A list of reactive power consumption of the Factory to iterate through.
+        reactive_power_consumption_factory: A list of reactive power consumption
+            of the Factory to iterate through.
         plot_these_buses: A list of buses for which we plot load angles.
     """
     fig, ax = plt.subplots()
@@ -40,7 +48,8 @@ def plot_bus_load_angles(
 def prepare_network(
     number_of_buses: int, cable_reactance: float, cable_resistance: float
 ) -> pypsa.components.Network:
-    """Construct a network of a certain number of buses, connected with lines in a circle.
+    """Construct a network of a certain number of buses, connected with lines in
+    a circle.
 
     Args:
         number_of_buses: How many buses shall our network consist of?
@@ -79,7 +88,8 @@ def calculate_bus_angles(
     Args:
         network: A PyPSA network class instance.
         number_of_buses: How many buses does the network consist of?
-        reactive_power_consumption_factory: A list of reactive power consumption of the Factory to iterate through.
+        reactive_power_consumption_factory: A list of reactive power consumption
+            of the Factory to iterate through.
 
     Returns:
         Load angles on each bus.
