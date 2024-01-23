@@ -32,9 +32,9 @@ for reactive_load in list(range(0, 1000, 50)):
 
 fig, ax = plt.subplots()
 
-ax.plot(list(range(0, 1000, 50)), bus_0_load_angles, label=f"Bus 0")
-ax.plot(list(range(0, 1000, 50)), bus_1_load_angles, label=f"Bus 1")
-ax.plot(list(range(0, 1000, 50)), bus_2_load_angles, label=f"Bus 2")
+ax.plot(list(range(0, 1000, 50)), bla_0, label=f"Bus 0")
+ax.plot(list(range(0, 1000, 50)), bla_1, label=f"Bus 1")
+ax.plot(list(range(0, 1000, 50)), bla_2, label=f"Bus 2")
 
 ax.legend()
 
