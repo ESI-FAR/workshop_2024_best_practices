@@ -11,9 +11,11 @@ Original code runs (once an environment is set up), but is difficult to scale: W
 
 1. Running environment
 
+```bash
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # For Windows, use `source .venv/Scripts/activate` instead
 pip install -r requirements.txt
+```
 
 2. Add comments
 2.1 (During the next steps: remove most comments, improve code)
